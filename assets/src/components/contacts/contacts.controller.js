@@ -2,7 +2,8 @@ class ContactsController {
 	constructor($firebaseObject) {
 		this.contacts = [];
 		this.firebaseObject = $firebaseObject;
-		console.log(firebase.database().ref());
+		console.log($firebaseObject); 
+		// console.log(firebase);
 	}
 }
 

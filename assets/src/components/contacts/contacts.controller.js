@@ -1,11 +1,8 @@
 class ContactsController {
 	constructor(firebaseService) {
-		// super();
-		this.contacts = []; 
-		// console.log($firebaseArray); 
-		// console.log(firebase); 
-		// console.log(new Firebase('https://mycontacts-24bd0.firebaseio.com/'));
+		this.contacts = firebaseService.getRef(); 
+		console.log(this.contacts);
 	}
 }
-// console.log(firebaseService);
+
 export default ContactsController;

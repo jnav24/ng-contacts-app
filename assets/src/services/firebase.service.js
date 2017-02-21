@@ -3,10 +3,12 @@ import config from './../env.js';
 class FirebaseService {
 	constructor($firebaseArray) {
 		firebase.initializeApp(config);
-		var ref = firebase.database().ref();
+		this._firebaseArray = $firebaseArray;
+	}
 
-		console.log(ref);
-		console.log($firebaseArray(ref));
+	getRef() {
+		const ref = firebase.database().ref();
+		return this._firebaseArray(ref);
 	}
 }
 

@@ -10,6 +10,11 @@ class FirebaseService {
 		const ref = firebase.database().ref();
 		return this._firebaseArray(ref);
 	}
+
+	saveTest() {
+		const ref = firebase.database().ref();
+		ref.child('test').set('you should see this in your firebase db');
+	}
 }
 
 // FirebaseService.$inject = ['$firebaseArray'];

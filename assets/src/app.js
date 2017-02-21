@@ -12,21 +12,6 @@ let ng_app = ng.module('contactsApp', [ng_ui_router, ng_fire, 'firebase'])
 	.config(firebase_config)
 	.service('firebaseService', FirebaseService)
 	.component('myContacts', contactsComponent)
-
-
-
-
-
-
-
-
-
-	
-	.controller('TestCtrl', function($scope, $firebaseObject) {
-		// console.log($firebaseObject);
-		// console.log(firebase.database().ref());
-		// console.log(new Firebase('https://mycontacts-24bd0.firebaseio.com/'));
-	})
 ;
 
 export default ng_app;

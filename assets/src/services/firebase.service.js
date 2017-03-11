@@ -7,13 +7,19 @@ class FirebaseService {
 	}
 
 	getRef() {
-		const ref = firebase.database().ref();
+		const ref = firebase.database().ref('users');
 		return this._firebaseArray(ref);
 	}
 
 	saveTest() {
 		const ref = firebase.database().ref();
 		ref.child('test').set('you should see this in your firebase db');
+	}
+
+	saveToDB(obj) {
+		const ref = firebase.database().ref('users');
+		const save = ref.push();
+		save.set(obj);
 	}
 }
 

@@ -1,8 +1,10 @@
 class ContactsController {
 	constructor(firebaseService) {
 		this.contacts = firebaseService.getRef(); 
-		console.log(this.contacts);
-		firebaseService.saveTest();
+		firebaseService.saveToDB({
+			name: "Bob Smith",
+			email: "bsmith@gmail.com"
+		});
 	}
 }
 

@@ -4,18 +4,24 @@
 	</a>
 
 	<div class="container-fluid" ng-if="$ctrl.show_form">
+		<ul ng-if="$ctrl.errors.length" class="form-errors">
+			<li ng-repeat="error in $ctrl.errors">{{ error }}</li>	
+		</ul>
+
 		<div class="row">
 	  		<div class="col-md-6">
 	  			<div class="form-group">
 				    <label for="fullName">Full name</label>
-				    <input type="text" class="form-control" id="fullName" placeholder="Full Name">
+				    <input type="text" class="form-control" 
+				    	placeholder="Full Name" ng-model="$ctrl.form_elements.full_name">
 				</div>
 	  		</div>
 	  		
 	  		<div class="col-md-6">
 	  			<div class="form-group">
 				    <label for="exampleInputEmail1">Email address</label>
-				    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+				    <input type="email" class="form-control"
+				    	placeholder="Email"  ng-model="$ctrl.form_elements.email">
 				</div>	
 	  		</div>
 		</div>

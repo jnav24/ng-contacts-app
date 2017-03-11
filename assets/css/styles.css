@@ -5,3 +5,13 @@ nav + .container {
 .add-contact {
 	margin: 30px 0;
 }
+
+.add-contact .form-errors {
+	background: #FD7F7F;
+	border: 1px solid red;
+	color: #fff;
+	list-style-type: none;
+	margin-bottom: 20px;
+	padding: 10px 0;
+	text-align: center;
+}

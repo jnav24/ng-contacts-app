@@ -1,3 +1,7 @@
 nav + .container {
 	padding-top: 75px;
 }
+
+.add-contact {
+	margin: 30px 0;
+}

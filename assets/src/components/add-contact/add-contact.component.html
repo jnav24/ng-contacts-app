@@ -1,0 +1,35 @@
+<div class="add-contact">
+	<a href="#/" class="btn btn-success" ng-click="$ctrl.showForm()" ng-if="!$ctrl.show_form">
+		Add Contact
+	</a>
+
+	<div class="container-fluid" ng-if="$ctrl.show_form">
+		<div class="row">
+	  		<div class="col-md-6">
+	  			<div class="form-group">
+				    <label for="fullName">Full name</label>
+				    <input type="text" class="form-control" id="fullName" placeholder="Full Name">
+				</div>
+	  		</div>
+	  		
+	  		<div class="col-md-6">
+	  			<div class="form-group">
+				    <label for="exampleInputEmail1">Email address</label>
+				    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+				</div>	
+	  		</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<button class="btn btn-success" ng-click="$ctrl.addContact()">
+					Submit Contact
+				</button>
+
+				<button class="btn" ng-click="$ctrl.showForm()">
+					Cancel
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

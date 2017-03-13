@@ -30,8 +30,8 @@ class FirebaseService {
 
 	updateObject() {}
 
-	delete() {
-
+	deleteObject(id) {
+		return ref.child(id).remove();
 	}
 }
 

@@ -1,25 +1,37 @@
 import config from './../env.js';
 
+let ref;
+
 class FirebaseService {
-	constructor($firebaseArray) {
+	constructor($firebaseArray, table) {
 		firebase.initializeApp(config);
-		this._firebaseArray = $firebaseArray;
+		this.firebaseArray = $firebaseArray;
+		ref = firebase.database().ref(table);
 	}
 
-	getRef() {
-		const ref = firebase.database().ref('users');
-		return this._firebaseArray(ref);
+	getData() {
+		return this.firebaseArray(ref);
 	}
 
-	saveTest() {
-		const ref = firebase.database().ref();
-		ref.child('test').set('you should see this in your firebase db');
-	}
+	// saveTest() {
+	// 	const ref = firebase.database().ref();
+	// 	ref.child('test').set('you should see this in your firebase db');
+	// }
 
-	saveToDB(obj) {
-		const ref = firebase.database().ref('users');
+	// removeTest() {
+	// 	const ref = firebase.database().ref();
+	// 	ref.child('test').remove();
+	// }
+
+	saveObject(obj) {
 		const save = ref.push();
 		save.set(obj);
+	}
+
+	updateObject() {}
+
+	delete() {
+
 	}
 }
 

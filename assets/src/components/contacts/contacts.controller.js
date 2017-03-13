@@ -1,6 +1,10 @@
 class ContactsController {
-	constructor(firebaseService) {
-		this.contacts = firebaseService.getRef();
+	constructor(usersService) {
+		this.contacts = usersService.getData();
+	}
+
+	deleteContact() {
+
 	}
 }
 

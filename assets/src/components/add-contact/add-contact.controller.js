@@ -1,13 +1,13 @@
+let ctrl;
+
 class AddContactController {
-	constructor(firebaseService) {
-		this.show_form = false;
-		this.errors = [];
-		this.firebase = firebaseService.getRef();
-		this.form_elements = {
-			full_name: '',
-			email: ''
-		};
-		this.validate = {
+	constructor(usersService) {
+		ctrl = this;
+		ctrl.show_form = false;
+		ctrl.errors = [];
+		ctrl.users = usersService;
+		ctrl.resetForm();
+		ctrl.validate = {
 			full_name: {
 				error: 'Enter a full name',
 				min_length: 3
@@ -19,26 +19,40 @@ class AddContactController {
 		};
 	}
 
-	addContact() {
-		this.validateForm();
+	resetForm() {
+		ctrl.form_elements = {
+			full_name: '',
+			email: ''
+		};
+	}
 
-		if (!this.errors.length) {
-			firebaseService.saveToDB({
-				name: this.form_elements.full_name,
-				email: this.form_elements.email
+	addContact() {
+		ctrl.validateForm();
+
+		if (!ctrl.errors.length) {
+			ctrl.showForm();
+			ctrl.users.saveObject({
+				name: ctrl.form_elements.full_name,
+				email: ctrl.form_elements.email
 			});
+			ctrl.resetForm();
 		}
 	}
 
+	cancelForm() {
+		ctrl.showForm();
+		ctrl.resetForm();
+	}
+
 	showForm() {
-		this.show_form = !this.show_form;
+		ctrl.show_form = !ctrl.show_form;
 	}
 
 	validateForm() {
 		let msg = 'This field cannot be empty; ';
-		const ctrl = this;
+		ctrl.errors = [];
 
-		Object.entries(this.form_elements).forEach(function(error, key) {
+		Object.entries(ctrl.form_elements).forEach(function(error, key) {
 			if (error[1].trim() === '') {
 				msg += error[0];
 

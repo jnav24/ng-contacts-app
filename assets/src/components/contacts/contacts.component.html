@@ -8,16 +8,14 @@
 	<thead>
 		<tr>
 			<th>Name</th>
-			<th>Company</th>
 			<th>Email</th>
 			<th>Actions</th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<td><a href=""></a></td>
-			<td></td>
-			<td></td>
+		<tr ng-repeat="contact in $ctrl.contacts">
+			<td><a href="">{{ contact.name }}</a></td>
+			<td>{{ contact.email }}</td>
 			<td>
 				<a href="" class="btn btn-primary">Edit</a>
 				<a href="" class="btn btn-danger">Delete</a>

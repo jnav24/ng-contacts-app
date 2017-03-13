@@ -14,10 +14,16 @@
 	</thead>
 	<tbody>
 		<tr ng-repeat="contact in $ctrl.contacts">
-			<td><a href="">{{ contact.name }}</a></td>
-			<td>{{ contact.email }}</td>
 			<td>
-				<a href="" class="btn btn-primary">Edit</a>
+				<a href="">{{ contact.name }}</a>
+			</td>
+			<td>
+				{{ contact.email }}
+			</td>
+			<td>
+				<a href="" 
+					ng-click="$ctrl.getContact(contact.$id)"
+					class="btn btn-primary">Edit</a>
 				<a href="" 
 					ng-click="$ctrl.deleteContact(contact.$id)"
 					class="btn btn-danger">Delete</a>

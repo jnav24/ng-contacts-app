@@ -5,5 +5,9 @@ export default function MainRoute($urlRouterProvider, $stateProvider) {
 		.state('home', {
 			url: '/',
 			template: '<my-contacts></my-contacts>'
+		})
+		.state('edit contact', {
+			url: '/:id',
+			template: ''
 		});
 };

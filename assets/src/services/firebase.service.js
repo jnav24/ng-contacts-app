@@ -23,6 +23,10 @@ class FirebaseService {
 	// 	ref.child('test').remove();
 	// }
 
+	getObjectById(id) {
+		console.log(this.firebaseArray(ref.child(id)));
+	}
+
 	saveObject(obj) {
 		const save = ref.push();
 		save.set(obj);

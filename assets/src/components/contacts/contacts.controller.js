@@ -16,6 +16,10 @@ class ContactsController {
 				console.log('there was an error.');
 			});
 	}
+
+	getContact(id) {
+		ctrl.users.getObjectById(id);
+	}
 }
 
 export default ContactsController;

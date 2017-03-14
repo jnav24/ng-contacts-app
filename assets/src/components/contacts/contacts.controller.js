@@ -1,25 +1,29 @@
-let ctrl;
+const ContactsController = (() => {
+	let ctrl;
 
-class ContactsController {
-	constructor(usersService) {
-		ctrl = this;
-		ctrl.contacts = usersService.getData();
-		ctrl.users = usersService;
+	class ContactsController {
+		constructor(usersService) {
+			ctrl = this;
+			ctrl.contacts = usersService.getData();
+			ctrl.users = usersService;
+		}
+
+		deleteContact(id) {
+			ctrl.users.deleteObject(id)
+				.then(() => {
+					console.log('item was removed.');
+				})
+				.catch(error => {
+					console.log('there was an error.');
+				});
+		}
+
+		getContact(id) {
+			ctrl.users.getObjectById(id);
+		}
 	}
 
-	deleteContact(id) {
-		ctrl.users.deleteObject(id)
-			.then(() => {
-				console.log('item was removed.');
-			})
-			.catch(error => {
-				console.log('there was an error.');
-			});
-	}
-
-	getContact(id) {
-		ctrl.users.getObjectById(id);
-	}
-}
+	return ContactsController;
+})();
 
 export default ContactsController;
